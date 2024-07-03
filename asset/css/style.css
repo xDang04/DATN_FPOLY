@@ -71,11 +71,34 @@ a:hover {
   padding: 0 10px;
   transition: var(--main-transition);
   cursor: pointer;
+  position: relative;
 }
 
 .header-nav nav ul li:hover {
   background-color: var(--hover-bg);
   border-radius: 4px;
+}
+
+.header-nav nav ul .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(var(--header-height) + 5px);
+  left: 0;
+  background-color: #dbd6d6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1000;
+  min-width: 200px; /* Tăng chiều rộng tối thiểu */
+}
+
+.header-nav nav ul .dropdown-menu li {
+  padding: 10px 20px; /* Tăng padding để mục menu rộng hơn */
+}
+
+.header-nav nav ul .dropdown:hover .dropdown-menu {
+  transition: all ease-in-out 3s;
+  display: block;
 }
 
 header {
@@ -87,12 +110,14 @@ header {
   top: 0;
   z-index: 1000;
 }
-header-logo img {
+
+.header-logo img {
   max-height: var(--header-height);
   max-width: 100%;
   object-fit: contain;
   cursor: pointer;
 }
+
 .header-search {
   position: relative;
 }
@@ -107,11 +132,11 @@ header-logo img {
 }
 
 .header-search input {
-  height: 30px;
+  height: 40px;
   border: 1px solid black;
-  padding-left: 24px;
-  border-radius: 15px;
-  width: 250px;
+  padding-left: 30px;
+  border-radius: 20px;
+  width: 300px;
 }
 
 .header-card i {
@@ -123,7 +148,9 @@ header-logo img {
 .header-user i {
   font-size: larger;
   cursor: pointer;
+  color: #333;
 }
+
 .header-card i::after {
   position: absolute;
   content: attr(number);
